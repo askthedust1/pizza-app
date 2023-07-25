@@ -1,6 +1,7 @@
-import {IPizzaFull} from "../../types";
+import {IPizzaFull} from "../types";
 import {createSlice} from "@reduxjs/toolkit";
 import {fetchPizzaList} from "./PizzaThunk";
+import {RootState} from "../app/store";
 
 interface PizzaState {
     pizzaList: IPizzaFull[];
@@ -30,4 +31,10 @@ export const PizzaSlice = createSlice({
             state.fetchLoading = false;
         });
     }
-})
+});
+
+export const PizzaReducer = PizzaSlice.reducer;
+
+export const pizzaList = (state: RootState) => state.pizza.pizzaList;
+export const pizzaListFetchLoading = (state: RootState) => state.pizza.fetchLoading;
+

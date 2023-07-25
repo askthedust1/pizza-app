@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PizzaItemAdmin = () => {
+const FormAdmin = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const PizzaItemAdmin = () => {
     );
 };
 
-export default PizzaItemAdmin;
+export default FormAdmin;
