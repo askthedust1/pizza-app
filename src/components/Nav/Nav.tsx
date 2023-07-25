@@ -1,7 +1,10 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
+import {useAppDispatch} from "../../app/hook";
+import {clear} from "../../store/PizzaSlice";
 
 const Nav = () => {
+
     return (
         <nav className="navbar navbar-light static-top">
             <div className="container-fluid">

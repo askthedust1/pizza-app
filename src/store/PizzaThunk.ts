@@ -1,5 +1,5 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {IPizzaFull, IPizzaList} from "../types";
+import {IPizzaBase, IPizzaFull, IPizzaList} from "../types";
 import axiosApi from "../axiosApi";
 
 export const fetchPizzaList = createAsyncThunk(
@@ -19,10 +19,36 @@ export const fetchPizzaList = createAsyncThunk(
     }
 );
 
+export const fetchOne = createAsyncThunk(
+    'pizza/fetchOne',
+    async (id: string) => {
+        const pizzaResponse = await axiosApi.get<IPizzaBase | null>(`/pizza/${id}.json`);
+        return pizzaResponse.data;
+    }
+);
+
+export const createPizza = createAsyncThunk<void, IPizzaBase>(
+    'contacts/create',
+    async (pizza) => {
+        await axiosApi.post(`/pizza.json`, pizza);
+    }
+);
+
+interface updatePizzaParams {
+    id: string;
+    pizza: IPizzaBase;
+}
+
+export const updatePizza = createAsyncThunk<void, updatePizzaParams>(
+    'contacts/update',
+    async (params) => {
+        await axiosApi.put(`/pizza/${params.id}.json`, params.pizza);
+    }
+);
 
 export const deletePizza = createAsyncThunk(
     'pizza/delete',
     async (id: string) => {
-        await axiosApi.delete(`/contacts/${id}.json`);
+        await axiosApi.delete(`/pizza/${id}.json`);
     },
 );
