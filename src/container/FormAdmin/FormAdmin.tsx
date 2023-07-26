@@ -32,13 +32,6 @@ const FormAdmin = () => {
         navigate('/admin');
     };
 
-    // if (!pizzaOne) {
-    //     return <div>
-    //
-    //         <Form onFormSubmit={addContact} isLoading={addLoading}/>
-    //     </div>
-    // }
-
 
     return (
         <div>

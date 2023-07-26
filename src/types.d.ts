@@ -14,3 +14,8 @@ export interface IPizzaFull {
 export interface IPizzaList {
     [id: string]: IPizzaBase;
 }
+
+export interface ICartPizza {
+    pizzaOrder: IPizzaFull,
+    amount: number,
+}

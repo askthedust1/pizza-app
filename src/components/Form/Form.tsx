@@ -64,9 +64,9 @@ const Form: React.FC<IProps> = ({pizza, onFormSubmit, isEdit, isLoading}) => {
                         </div>
                     <div className="d-flex mb-3">
                         <label htmlFor="text" className="form-label fs-4 me-4">Photo:</label>
-                        <input name="photo" value={newPizza.pic} type="text"
+                        <input name="pic" value={newPizza.pic} type="text"
                                className="form-control" placeholder="Add photo"
-                               id="photo"
+                               id="pic"
                                onChange={inputHandler}/>
                     </div>
                     <div className="d-grid gap-2">
