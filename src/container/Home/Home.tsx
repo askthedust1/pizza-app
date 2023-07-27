@@ -1,10 +1,10 @@
 import React from 'react';
-import ItemsOrder from "../ItemOrder/ItemsOrder";
+import Order from "../ItemOrder/Order";
 
 const Home = () => {
     return (
         <div>
-            <ItemsOrder/>
+            <Order/>
         </div>
     );
 };

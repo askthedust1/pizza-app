@@ -16,6 +16,26 @@ export interface IPizzaList {
 }
 
 export interface ICartPizza {
-    pizzaOrder: IPizzaFull,
-    amount: number,
+    pizzaOrder: IPizzaFull;
+    amount: number;
+}
+
+export interface IApiPizza {
+    [dishId: string]: number;
+}
+
+export interface IApiOrders {
+    [orderId: string]: IApiPizza;
+}
+
+export interface IOrdersInfo {
+    name: string,
+    price: number,
+    amount: number;
+}
+
+export interface IOrdersFull {
+    totalSum: number;
+    pizzas: IOrdersInfo[],
+    orderId: string;
 }

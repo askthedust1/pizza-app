@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Admin from "./container/Admin/Admin";
 import FormAdmin from "./container/FormAdmin/FormAdmin";
 import Home from "./container/Home/Home";
+import OrdersAdmin from "./container/OrdersAdmin/OrdersAdmin";
 
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/admin" element={(<Admin/>)}/>
         <Route path="/admin/dishes" element={(<Admin/>)}/>
+        <Route path="/admin/orders" element={(<OrdersAdmin/>)}/>
         <Route path="/admin/new-pizza" element={(<FormAdmin/>)}/>
         <Route path="/admin/edit-pizza/:id" element={(<FormAdmin/>)}/>
         <Route path="/" element={(<Home/>)}/>
