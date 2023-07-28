@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../app/hook";
 import {fetchOrdersList} from "../../store/PizzaThunk";
 import {orderList, orderLoading} from "../../store/OrderSlice";
-import Nav from "../../components/Nav/Nav";
 import Spinner from "../../components/Spinner/Spinner";
 import OrdersList from "../../components/OrdersList/OrdersList";
 
@@ -21,7 +20,6 @@ const OrdersAdmin = () => {
 
     return (
         <div>
-            <Nav/>
             {
                 ordersIsLoading ? <Spinner/> : <div>
                     {

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {IPizzaBase} from "../../types";
 import ButtonSpinner from "../ButtonSpiner/ButtonSpinner";
-import Nav from "../Nav/Nav";
 
 interface IProps {
     onFormSubmit: (newPizza: IPizzaBase) => void;
@@ -41,7 +40,6 @@ const Form: React.FC<IProps> = ({pizza, onFormSubmit, isEdit, isLoading}) => {
 
     return (
         <div>
-            <Nav/>
             <div>
                 <form onSubmit={onSubmit} className="p-3 w-50 mx-auto text-white">
                     <div className="form-group mb-3 d-flex">

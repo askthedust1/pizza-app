@@ -19,3 +19,12 @@ body {
   display: inline-block;
   border: none;
 }
+
+.button-edit {
+  background: url('assets/pen.png') no-repeat center / contain;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  border: none;
+  margin-right: 10px;
+}

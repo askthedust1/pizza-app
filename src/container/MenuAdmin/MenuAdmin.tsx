@@ -21,6 +21,7 @@ const MenuAdmin = () => {
         dispatch(fetchPizzaList());
     }, [dispatch]);
 
+
     const pizzaDel = async (id: string) => {
         if (window.confirm('Do you really want to delete this pizza?')) {
             await dispatch(deletePizza(id));
@@ -39,17 +40,16 @@ const MenuAdmin = () => {
                 <div>
                     <Link
                         to={'/admin/edit-pizza/' + item.id}
-                        className="btn btn-primary me-2">
-                        Edit
+                        className="button-edit">
                     </Link>
 
                     <button
-                        className="btn btn-danger"
+                        className="button-icon"
+                        style={{width:'40px',height:'40px'}}
                         onClick={() => pizzaDel(item.id)}
                         disabled={deleteLoading ? deleteLoading === item.id : false}
                     >
                         { deleteLoading && deleteLoading === item.id && <ButtonSpinner/> }
-                        Delete
                     </button>
                 </div>
             </ItemCard>
@@ -59,7 +59,7 @@ const MenuAdmin = () => {
     return (
         <div>
             <div className="mb-4 ms-2">
-                <Link onClick={clearData} className="btn btn-light fs-4" to="/admin/new-pizza">Add new pizza</Link>
+                <Link onClick={clearData} style={{color: '#e85319'}} className="btn btn-light fs-4" to="/admin/new-pizza">Add new pizza</Link>
             </div>
             <div className="row row-cols-1 row-cols-md-3 g-4">
                 {pizzas}
