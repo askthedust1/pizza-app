@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {IPizzaBase} from "../../types";
 import ButtonSpinner from "../ButtonSpiner/ButtonSpinner";
+import {useNavigate} from "react-router-dom";
 
 interface IProps {
     onFormSubmit: (newPizza: IPizzaBase) => void;
@@ -10,6 +11,7 @@ interface IProps {
 }
 
 const Form: React.FC<IProps> = ({pizza, onFormSubmit, isEdit, isLoading}) => {
+    const navigate = useNavigate();
     const initialState = pizza ? {
         ...pizza
     } : {
@@ -68,10 +70,13 @@ const Form: React.FC<IProps> = ({pizza, onFormSubmit, isEdit, isLoading}) => {
                                id="pic"
                                onChange={inputHandler}/>
                     </div>
-                    <div className="d-grid gap-2">
-                        <button type="submit" className="btn btn-light fs-5 mt-3">
+                    <div className="d-flex justify-content-center row d-grid gap-2">
+                        <button type="submit" className="col-5 btn btn-danger fs-5 mt-3">
                             {isLoading && <ButtonSpinner/>}
                             {isEdit ? 'Update' : 'Create'}
+                        </button>
+                        <button onClick={() => navigate("/admin")} type="button" className="col-5 btn btn-light fs-5 mt-3">
+                            Chancel
                         </button>
                     </div>
                 </form>

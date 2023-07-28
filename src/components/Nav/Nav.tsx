@@ -6,12 +6,13 @@ const Nav = () => {
     const location = useLocation();
     const isAdminPage = location.pathname === '/admin' ||
         location.pathname === "/admin/dishes" ||
-        location.pathname === "/admin/orders";
+        location.pathname === "/admin/orders" ||
+        location.pathname === "/admin/new-pizza";
 
     return (
         <nav className="navbar navbar-light static-top">
             <div className="container-fluid">
-                <NavLink className="navbar-brand text-white fs-1" to="/">
+                <NavLink className="navbar-brand text-white fs-1" to={ isAdminPage ? "/admin" : "/"}>
                     <img className="logo" src={logo} alt="logo" style={{height:'50px'}}/>
                 </NavLink>
                 <div>
