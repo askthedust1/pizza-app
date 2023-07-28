@@ -10,7 +10,7 @@ import OrdersAdmin from "./container/OrdersAdmin/OrdersAdmin";
 
 const App = () => {
   return (
-    <div className="App container">
+    <div className="App container text-white">
       <Routes>
         <Route path="/admin" element={(<Admin/>)}/>
         <Route path="/admin/dishes" element={(<Admin/>)}/>

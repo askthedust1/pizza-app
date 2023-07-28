@@ -8,7 +8,7 @@ import {addPizzas} from "../../store/CartSlice";
 import {IPizzaFull} from "../../types";
 
 
-const ItemsOrder = () => {
+const MenuClientItems = () => {
     const dispatch = useAppDispatch();
     const pizzaItems = useAppSelector(pizzaList);
     const pizzaLoading = useAppSelector(pizzaListFetchLoading);
@@ -36,7 +36,10 @@ const ItemsOrder = () => {
                 pizza={item}
             >
                 <button
-                    className="btn btn-success me-2"
+                    className="btn me-2 fs-5"
+                    style={{background:'#e85319',
+                        color:'white',
+                        fontWeight:'700'}}
                     onClick={() => addPizzaToCart(item)}
                 >
                     Add
@@ -46,13 +49,10 @@ const ItemsOrder = () => {
     }
 
     return (
-        <div>
-            <div className="d-flex justify-content-between mb-4">
-                <h2>Pizza Menu</h2>
-            </div>
+        <div className="row row-cols-1 row-cols-md-3 g-4 mt-2">
             {pizzas}
         </div>
     );
 };
 
-export default ItemsOrder;
+export default MenuClientItems;

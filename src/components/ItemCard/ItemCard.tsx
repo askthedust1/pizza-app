@@ -10,24 +10,24 @@ const ItemCard: React.FC<Props> = ({children, pizza}) => {
     const image = pizza.pic || imageUrl;
 
     const imageStyle: React.CSSProperties = {
-        background: `url(${image}) center / cover no-repeat`,
+        background: `url(${image}) bottom center / cover no-repeat`,
+        height: '250px'
     };
 
     return (
-        <div className="card mb-2">
-            <div className="row no-gutters">
-                <div className="col-sm-4 rounded-start" style={imageStyle}/>
-                <div className="col-sm-8 ps-0">
-                    <div className="card-body">
-                        <h5 className="card-title">{pizza.name}</h5>
+    <div className="col">
+        <div className="card h-100">
+            <div className="card-img-top" style={imageStyle}/>
+                <div className="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 className="card-title fs-4 fw-bold">{pizza.name}</h5>
                         <p className="card-text">{pizza.price} KGS</p>
                     </div>
-                    <div className="card-footer">
-                        {children}
-                    </div>
+                    {children}
                 </div>
-            </div>
+
         </div>
+    </div>
     );
 };
 

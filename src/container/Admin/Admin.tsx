@@ -1,12 +1,12 @@
 import React from 'react';
 import Nav from "../../components/Nav/Nav";
-import ItemsAdmin from "../ItemAdmin/ItemsAdmin";
+import MenuAdmin from "../MenuAdmin/MenuAdmin";
 
 const Admin = () => {
     return (
         <>
             <Nav/>
-            <ItemsAdmin/>
+            <MenuAdmin/>
         </>
     );
 };

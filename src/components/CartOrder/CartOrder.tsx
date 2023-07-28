@@ -24,7 +24,9 @@ const CartOrder: React.FC<Props> = ({cart}) => {
                     <div className="col-3 text-rightxp">
                         {price} KGS
                     </div>
-                    <button onClick={() => delOrder(cart.pizzaOrder.id)}>Delete</button>
+                    <button className="button-icon col-2"
+                            onClick={() => delOrder(cart.pizzaOrder.id)}
+                    ></button>
                 </div>
             </div>
         </div>

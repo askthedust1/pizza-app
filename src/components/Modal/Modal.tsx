@@ -19,7 +19,7 @@ const Modal: React.FC<Props> = ({show, title, onClose, children}) => {
                 <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h1 className="modal-title fs-5">{title}</h1>
+                            <h1 className="modal-title text-black fs-5">{title}</h1>
                         </div>
                         {children}
                     </div>

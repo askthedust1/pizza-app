@@ -56,5 +56,6 @@ const cartSlice = createSlice({
 
 export const cartReducer = cartSlice.reducer;
 export const order = (state: RootState) => state.cart.cartPizza;
+export const sendOrderLoading = (state: RootState) => state.cart.addLoading;
 
 export const {addPizzas, deleteOne, clearCart} = cartSlice.actions;

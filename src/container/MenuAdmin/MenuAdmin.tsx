@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 import ItemCard from "../../components/ItemCard/ItemCard";
 import ButtonSpinner from "../../components/ButtonSpiner/ButtonSpinner";
 
-const ItemsAdmin = () => {
+const MenuAdmin = () => {
     const dispatch = useAppDispatch();
     const pizzaItems = useAppSelector(pizzaList);
     const pizzaLoading = useAppSelector(pizzaListFetchLoading);
@@ -36,33 +36,37 @@ const ItemsAdmin = () => {
                 key={item.id}
                 pizza={item}
             >
-                <Link
-                    to={'/admin/edit-pizza/' + item.id}
-                    className="btn btn-primary me-2">
-                    Edit
-                </Link>
+                <div>
+                    <Link
+                        to={'/admin/edit-pizza/' + item.id}
+                        className="btn btn-primary me-2">
+                        Edit
+                    </Link>
 
-                <button
-                    className="btn btn-danger"
-                    onClick={() => pizzaDel(item.id)}
-                    disabled={deleteLoading ? deleteLoading === item.id : false}
-                >
-                    { deleteLoading && deleteLoading === item.id && <ButtonSpinner/> }
-                    Delete
-                </button>
+                    <button
+                        className="btn btn-danger"
+                        onClick={() => pizzaDel(item.id)}
+                        disabled={deleteLoading ? deleteLoading === item.id : false}
+                    >
+                        { deleteLoading && deleteLoading === item.id && <ButtonSpinner/> }
+                        Delete
+                    </button>
+                </div>
             </ItemCard>
         ));
     }
 
     return (
         <div>
-            <div className="d-flex justify-content-between mb-4">
-                <h2>Pizza</h2>
-                <Link onClick={clearData} className="btn btn-outline-danger fs-4" to="/admin/new-pizza">Add new pizza</Link>
+            <div className="mb-4 ms-2">
+                <Link onClick={clearData} className="btn btn-light fs-4" to="/admin/new-pizza">Add new pizza</Link>
             </div>
-            {pizzas}
+            <div className="row row-cols-1 row-cols-md-3 g-4">
+                {pizzas}
+            </div>
+
         </div>
     );
 };
 
-export default ItemsAdmin;
+export default MenuAdmin;

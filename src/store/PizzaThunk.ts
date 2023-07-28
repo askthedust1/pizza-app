@@ -30,14 +30,17 @@ export const fetchPizzaList = createAsyncThunk(
 );
 
 export const fetchOrdersList = createAsyncThunk<IOrdersFull[], undefined, {state: RootState}>(
-    'order/fetchOrders',
+    'order/fetchOrdersList',
     async (_, thunkAPI) => {
         await thunkAPI.dispatch(fetchPizzaList());
         const pizzas = thunkAPI.getState().pizza.pizzaList;
+        console.log(pizzas)
         const ordersListResponse = await axiosApi.get<IApiOrders | null>('/pizza-orders.json');
         const orders = ordersListResponse.data;
+        console.log(orders)
 
         let newList: IOrdersFull[] = [];
+
 
         if (orders) {
             for (let key in orders) {
@@ -45,27 +48,42 @@ export const fetchOrdersList = createAsyncThunk<IOrdersFull[], undefined, {state
                 let total = 0;
                 for (let items in orders[key]) {
                     let index = pizzas.findIndex(item => item.id === items);
-                    let dishes = {
-                        name: pizzas[index].name,
-                        price: pizzas[index].price,
-                        amount: orders[key][items],
+                    if (index !== -1) {
+                        let dishes = {
+                            name: pizzas[index].name,
+                            price: pizzas[index].price,
+                            amount: orders[key][items],
+                        }
+                        total += pizzas[index].price * orders[key][items];
+                        meals.push(dishes);
+                    } else {
+                        meals.push({
+                            name: 'Dish removed',
+                            price: 0,
+                            amount: 0,
+                        });
                     }
-                    total = pizzas[index].price * orders[key][items];
-                    meals.push(dishes);
                 }
                 newList.push({
-                    totalSum: total,
+                    totalSum: total + 150,
                     pizzas: meals,
                     orderId: key,
                 });
             }
         }
 
-        console.log(newList)
+        console.log('List' + newList)
 
         return newList;
 
     }
+);
+
+export const deleteOrderList = createAsyncThunk(
+    'order/delete',
+    async (id: string) => {
+        await axiosApi.delete(`/pizza-orders/${id}.json`);
+    },
 );
 
 export const fetchOne = createAsyncThunk(

@@ -1,10 +1,10 @@
 import React from 'react';
-import Order from "../ItemOrder/Order";
+import MenuOrder from "../MenuClient/MenuOrder";
 
 const Home = () => {
     return (
         <div>
-            <Order/>
+            <MenuOrder/>
         </div>
     );
 };

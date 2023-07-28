@@ -35,14 +35,15 @@ const Form: React.FC<IProps> = ({pizza, onFormSubmit, isEdit, isLoading}) => {
 
         onFormSubmit({
             ...newPizza,
+            price: Number(newPizza.price),
         });
     };
 
     return (
         <div>
             <Nav/>
-            <div className="border border-white rounded-5">
-                <form onSubmit={onSubmit} className="p-3 w-50 mx-auto text-black">
+            <div>
+                <form onSubmit={onSubmit} className="p-3 w-50 mx-auto text-white">
                     <div className="form-group mb-3 d-flex">
                         <label htmlFor="author" className="form-label fs-4 me-4">Name:</label>
                         <input name="name" value={newPizza.name}
